@@ -237,7 +237,7 @@ export async function executeOpenCodeNonStreaming(params: {
 
     // Send active message using native explore agent (no OpenCode persona injection)
     const promptText = system
-      ? `[System Instructions]\n${system}\n\n${currentMessage.text}`
+      ? `${system}\n\n${currentMessage.text}`
       : currentMessage.text;
 
     const payload: any = {
@@ -373,7 +373,7 @@ export async function executeOpenCodeStreaming(params: {
 
     // Dispatch prompt using native explore agent (no OpenCode persona injection)
     const promptText = system
-      ? `[System Instructions]\n${system}\n\n${currentMessage.text}`
+      ? `${system}\n\n${currentMessage.text}`
       : currentMessage.text;
 
     const payload: any = {
