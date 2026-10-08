@@ -24,7 +24,9 @@ Write-Host ""
 $opencodeListener = Get-NetTCPConnection -LocalPort 4096 -State Listen -ErrorAction SilentlyContinue
 if ($null -eq $opencodeListener) {
     Write-Host "[*] Starting OpenCode server (port 4096) in background..." -ForegroundColor Yellow
-    Start-Process -FilePath "opencode" -ArgumentList "serve --port 4096" -WorkingDirectory $ProjectRoot -WindowStyle Hidden
+    $opencodeCmd = (Get-Command "opencode.cmd" -ErrorAction SilentlyContinue).Source
+    if (-not $opencodeCmd) { $opencodeCmd = "opencode" }
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/c `"$opencodeCmd`" serve --port 4096" -WorkingDirectory $ProjectRoot -WindowStyle Hidden
     Start-Sleep -Seconds 2
 } else {
     Write-Host "[OK] OpenCode server is already running on port 4096." -ForegroundColor Green
@@ -36,7 +38,7 @@ if ($null -eq $opencodeListener) {
 $proxyListener = Get-NetTCPConnection -LocalPort 3005 -State Listen -ErrorAction SilentlyContinue
 if ($null -eq $proxyListener) {
     Write-Host "[*] Starting Proxy Gateway on port 3005 in background..." -ForegroundColor Yellow
-    Start-Process -FilePath "bun" -ArgumentList "run src/index.ts" -WorkingDirectory $ProjectRoot -WindowStyle Hidden
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/c bun run src/index.ts" -WorkingDirectory $ProjectRoot -WindowStyle Hidden
     Start-Sleep -Seconds 2
 } else {
     Write-Host "[OK] Proxy Gateway is already running on port 3005." -ForegroundColor Green
