@@ -1,0 +1,12 @@
+{
+  "agent": {
+    "passthrough": {
+      "description": "OpenCode passthrough agent",
+      "prompt": "You are OpenCode, an AI assistant.",
+      "tools": {
+        "bash": true,
+        "read": true
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "reverse-opencode",
+  "version": "1.0.0",
+  "description": "High-performance Anthropic & OpenAI-compatible gateway reverse-engineering OpenCode Zen free tier for Claude Code, Cline, and agentic tools.",
+  "type": "module",
+  "author": "Hypertonny",
+  "license": "MIT",
+  "homepage": "https://github.com/hypertonny/Reverse-Opencode#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hypertonny/Reverse-Opencode.git"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  }
+}

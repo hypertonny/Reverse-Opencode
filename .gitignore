@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+!.env.example
+
+# Runtime logs
+logs/
+*.log
+
+# Scratch and debug files
+scratch_*.mjs
+scratch_*.ts
+scratch/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
